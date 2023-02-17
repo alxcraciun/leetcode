@@ -22,6 +22,15 @@ class Solution:
     def missingNumber(self, nums: list[int]) -> int:
         return (len(nums) * (len(nums) + 1)) // 2 - sum(nums)
 
+# Moved to functools in Python3
+from functools import reduce
 
+# Bit XOR Solution: O(n) time complexity
+# We merge the nums list with a complete list
+# Duplicate elements remove themselves when XOR-ed
+class Solution2:
+    def missingNumber(self, nums: list[int]) -> int:
+        return reduce(lambda x, y: x ^ y, list(range(len(nums)+1)) + nums)
 
-
+solution = Solution2().missingNumber([9,6,4,2,3,5,7,0,1])
+print(solution)
