@@ -16,12 +16,11 @@ class Solution:
     def reverseString(self, s: list[str]) -> None:
         # Built-in Method in Python
         # s.reverse()
-        a = len(s) // 2
         b = len(s) - 1
-        for i in range(0, a):
+        for i in range(0, len(s) // 2):
             s[i], s[b] = s[b], s[i]
             b -= 1
 
-s = ["h", "e", "x", "l", "o"]
+s = ["h", "e", "x", "y", "l", "o"]
 Solution().reverseString(s)
 print(s)
